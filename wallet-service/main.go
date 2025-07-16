@@ -7,7 +7,7 @@ import (
 	"net"
 	"os"
 
-	"proto/walletpb" // Import generated proto
+	"proto/trade_engine_walletpb" // Import generated proto
 
 	"github.com/IBM/sarama"
 	"google.golang.org/grpc"
@@ -22,21 +22,21 @@ var (
 
 // walletServer implements WalletServiceServer interface
 type walletServer struct {
-	walletpb.UnimplementedWalletServiceServer                               // To satisfy interface
-	balances                                  map[string]map[string]float64 // Dummy DB: user_id -> currency -> amount
+	trade_engine_walletpb.UnimplementedWalletServiceServer                               // To satisfy interface
+	balances                                               map[string]map[string]float64 // Dummy DB: user_id -> currency -> amount
 }
 
 // GetBalance returns user's crypto balances
-func (s *walletServer) GetBalance(ctx context.Context, req *walletpb.BalanceRequest) (*walletpb.BalanceResponse, error) {
+func (s *walletServer) GetBalance(ctx context.Context, req *trade_engine_walletpb.BalanceRequest) (*trade_engine_walletpb.BalanceResponse, error) {
 	userID := req.GetUserId()
 	fmt.Printf("Received GetBalance request for user: %s\n", userID)
 
 	userBalances, exists := s.balances[userID]
 	if !exists {
-		return &walletpb.BalanceResponse{Balances: map[string]float64{}}, nil
+		return &trade_engine_walletpb.BalanceResponse{Balances: map[string]float64{}}, nil
 	}
 
-	return &walletpb.BalanceResponse{Balances: userBalances}, nil
+	return &trade_engine_walletpb.BalanceResponse{Balances: userBalances}, nil
 }
 
 func main() {
@@ -66,7 +66,7 @@ func startGRPCServer() {
 
 	// Create gRPC server
 	server := grpc.NewServer()
-	walletpb.RegisterWalletServiceServer(server, &walletServer{balances: balances})
+	trade_engine_walletpb.RegisterWalletServiceServer(server, &walletServer{balances: balances})
 
 	port := os.Getenv("WALLET_GRPC_PORT")
 	if port == "" {

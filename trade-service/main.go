@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"proto/walletpb" // Import generated proto
+	"proto/trade_engine_walletpb" // Import generated proto
 
 	"github.com/IBM/sarama"
 	"google.golang.org/grpc"
@@ -29,7 +29,7 @@ func main() {
 	defer conn.Close()
 
 	// Create a client for WalletService
-	client := walletpb.NewWalletServiceClient(conn)
+	client := trade_engine_walletpb.NewWalletServiceClient(conn)
 
 	// Call GetBalance for user123
 	userID := "user456"
@@ -38,7 +38,7 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 
-	req := &walletpb.BalanceRequest{UserId: userID}
+	req := &trade_engine_walletpb.BalanceRequest{UserId: userID}
 	res, err := client.GetBalance(ctx, req)
 	if err != nil {
 		log.Fatalf("❌ Error calling GetBalance: %v", err)

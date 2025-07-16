@@ -4,7 +4,7 @@
 // 	protoc        v3.21.12
 // source: proto/wallet.proto
 
-package walletpb
+package trade_engine_walletpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -115,17 +115,17 @@ var File_proto_wallet_proto protoreflect.FileDescriptor
 
 const file_proto_wallet_proto_rawDesc = "" +
 	"\n" +
-	"\x12proto/wallet.proto\x12\x06wallet\")\n" +
+	"\x12proto/wallet.proto\x12\x13trade_engine_wallet\")\n" +
 	"\x0eBalanceRequest\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\tR\x06userId\"\x91\x01\n" +
-	"\x0fBalanceResponse\x12A\n" +
-	"\bbalances\x18\x01 \x03(\v2%.wallet.BalanceResponse.BalancesEntryR\bbalances\x1a;\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\"\x9e\x01\n" +
+	"\x0fBalanceResponse\x12N\n" +
+	"\bbalances\x18\x01 \x03(\v22.trade_engine_wallet.BalanceResponse.BalancesEntryR\bbalances\x1a;\n" +
 	"\rBalancesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\x01R\x05value:\x028\x012N\n" +
-	"\rWalletService\x12=\n" +
+	"\x05value\x18\x02 \x01(\x01R\x05value:\x028\x012h\n" +
+	"\rWalletService\x12W\n" +
 	"\n" +
-	"GetBalance\x12\x16.wallet.BalanceRequest\x1a\x17.wallet.BalanceResponseB\vZ\t/walletpbb\x06proto3"
+	"GetBalance\x12#.trade_engine_wallet.BalanceRequest\x1a$.trade_engine_wallet.BalanceResponseB\x1dZ\x1bproto/trade_engine_walletpbb\x06proto3"
 
 var (
 	file_proto_wallet_proto_rawDescOnce sync.Once
@@ -141,14 +141,14 @@ func file_proto_wallet_proto_rawDescGZIP() []byte {
 
 var file_proto_wallet_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_proto_wallet_proto_goTypes = []any{
-	(*BalanceRequest)(nil),  // 0: wallet.BalanceRequest
-	(*BalanceResponse)(nil), // 1: wallet.BalanceResponse
-	nil,                     // 2: wallet.BalanceResponse.BalancesEntry
+	(*BalanceRequest)(nil),  // 0: trade_engine_wallet.BalanceRequest
+	(*BalanceResponse)(nil), // 1: trade_engine_wallet.BalanceResponse
+	nil,                     // 2: trade_engine_wallet.BalanceResponse.BalancesEntry
 }
 var file_proto_wallet_proto_depIdxs = []int32{
-	2, // 0: wallet.BalanceResponse.balances:type_name -> wallet.BalanceResponse.BalancesEntry
-	0, // 1: wallet.WalletService.GetBalance:input_type -> wallet.BalanceRequest
-	1, // 2: wallet.WalletService.GetBalance:output_type -> wallet.BalanceResponse
+	2, // 0: trade_engine_wallet.BalanceResponse.balances:type_name -> trade_engine_wallet.BalanceResponse.BalancesEntry
+	0, // 1: trade_engine_wallet.WalletService.GetBalance:input_type -> trade_engine_wallet.BalanceRequest
+	1, // 2: trade_engine_wallet.WalletService.GetBalance:output_type -> trade_engine_wallet.BalanceResponse
 	2, // [2:3] is the sub-list for method output_type
 	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

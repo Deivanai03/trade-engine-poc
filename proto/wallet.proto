@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package wallet;
+package trade_engine_wallet;
 
 
 // For Go code generation: specify the import path
-option go_package = "/walletpb";
+option go_package = "proto/trade_engine_walletpb";
 
 // The Wallet service definition
 service WalletService {

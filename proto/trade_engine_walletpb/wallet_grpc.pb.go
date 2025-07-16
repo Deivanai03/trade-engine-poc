@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: proto/wallet.proto
 
-package walletpb
+package trade_engine_walletpb
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	WalletService_GetBalance_FullMethodName = "/wallet.WalletService/GetBalance"
+	WalletService_GetBalance_FullMethodName = "/trade_engine_wallet.WalletService/GetBalance"
 )
 
 // WalletServiceClient is the client API for WalletService service.
@@ -114,7 +114,7 @@ func _WalletService_GetBalance_Handler(srv interface{}, ctx context.Context, dec
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var WalletService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "wallet.WalletService",
+	ServiceName: "trade_engine_wallet.WalletService",
 	HandlerType: (*WalletServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
